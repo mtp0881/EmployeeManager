@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  background-color: #e7e9eb;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bg-orange {
+  background-color: #f86534;
+}
+
+.bg-green {
+  background-color: #33cd39;
+}
+
+.bg-puple {
+  background-color: #8934ff;
+}
+
+.bg-blue {
+  background-color: #3162ff;
+}
+
+/*      employees List Start       */
+.title {
+  font-size: 18px;
+  line-height: 1.333;
+  font-weight: 500;
+  margin: 0 0 30px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #f6f8fa;
+}
+
+.wraper {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.employee-list {
+  --gap: 30px;
+  --columns: 3;
+  display: grid;
+  grid-gap: var(--gap);
+  grid-template-columns: repeat(var(--columns), 1fr);
+}
+.employee-list-item {
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.377) 0px 0px 8px;
+}
+.employee-list-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.267) 0px 0px 4px;
+}
+.employee-list-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.employee-list-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 20px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+.employee-list-detail {
+  color: #8b8b8b;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  line-height: 1.7;
+}
+.employee-list-tag {
+  margin: 20px 0 0px 0;
+  display: flex;
+  align-items: stretch;
+}
+.employee-list .tag-item {
+  padding: 8px 10px;
+  display: inline-block;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8d8d8d;
+  cursor: pointer;
+  margin-right: 10px;
+  position: relative;
+}
+.employee-list .tag-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: inherit;
+  background-color: currentColor;
+  opacity: 0.2;
+}
+.employee-list-friends {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  margin-left: 8px;
+}
+.employee-list .friends-item {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -8px;
+}
+.employee-list .friends-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.employee-list .friends-item:nth-child(4) {
+  border: 1px solid #bbb;
+}
+.employee-list .friends-count {
+  margin-left: 10px;
+  color: #aaa;
+  font-size: 14px;
+}
+.employee-list-action {
+  display: flex;
+  justify-content: space-between;
+}
+.employee-list .action-button {
+  width: calc(100% / 2 - 10px);
+  outline: none;
+  border: none;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.employee-list .action-button--blue {
+  background-color: #2664ff;
+  color: white;
+}
+.employee-list .action-button--blue:hover {
+  background-color: #2050c9;
+}
+.employee-list .action-button--gray {
+  background-color: #f1f1f5;
+  color: #81818c;
+}
+.employee-list .action-button--gray:hover {
+  background-color: #dedee0;
+}
+
+/*      employees List End       */
+
+.create-from {
+  margin: 30px;
+  text-align: center;
+}
