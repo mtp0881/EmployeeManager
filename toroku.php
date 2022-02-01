@@ -22,7 +22,7 @@
 <head>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="./emp_style.css" />
-<title>EX28　yyJNccnn　社員情報登録</title>
+<title>社員情報登録</title>
 </head>
 <body>
 	<div id="detail">

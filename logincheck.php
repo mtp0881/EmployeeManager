@@ -3,10 +3,10 @@
 
 	session_regenerate_id(TRUE);
 
-	if(isset($_SESSION['LoginOK']) == false){
+	if(isset($_SESSION['LoginOK']) === false){
 		header('location:./login.php');
 	}
 	
-	if($_SESSION['LoginOK'] != "OK"){
+	if($_SESSION['LoginOK'] !== "OK"){
 		header('location:./login.php');
 	}

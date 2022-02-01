@@ -21,7 +21,7 @@
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		//参照系SQL
-		$sql = "SELECT * FROM employee AS A INNER JOIN employee AS B ON A.manager INNER JOIN department AS C ON A.department = C.department_no = B.employee_no WHERE A.employee_no = :employee_no GROUP BY A.manager";
+		$sql = "SELECT * FROM employee AS A INNER JOIN employee AS B ON A.manager INNER JOIN department AS C ON A.department = C.department_no = B.employee_no WHERE A.employee_no = :employee_no ";
 
 		//参照系SQLを発行
 		$statement = $pdo->prepare($sql);
@@ -69,7 +69,7 @@
 <head>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="./emp_style.css" />
-<title>EX28　yyJNccnn　社員データ削除</title>
+<title>社員データ削除</title>
 </head>
 <body>
 	<div id="list">

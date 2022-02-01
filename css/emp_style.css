@@ -47,7 +47,8 @@
   display: inline-block;
   color: white;
   font-size: 40px;
-  font-family: "Noto Serif Japanese";
+  font-family: "Dancing Script";
+  padding: 30px;
 }
 
 .login-or {

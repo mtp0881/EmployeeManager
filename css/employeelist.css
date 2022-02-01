@@ -44,10 +44,10 @@ a {
 
 .container {
   max-width: 1200px;
-  margin: 30px auto 0;
+  margin: 0 auto;
   padding: 20px;
   border-radius: 20px;
-  background-color: #f6f8fa;
+  background-color: white;
 }
 
 .wraper {
@@ -56,7 +56,7 @@ a {
 }
 
 .employee-list {
-  --gap: 30px;
+  --gap: 20px;
   --columns: 3;
   display: grid;
   grid-gap: var(--gap);
@@ -65,7 +65,8 @@ a {
 .employee-list-item {
   border-radius: 10px;
   padding: 20px;
-  box-shadow: rgba(149, 157, 165, 0.377) 0px 0px 8px;
+  /* box-shadow: rgba(149, 157, 165, 0.377) 0px 0px 8px; */
+  border: 1px solid rgba(153, 153, 153, 0.247);
 }
 .employee-list-logo {
   width: 60px;
@@ -191,6 +192,45 @@ a {
 /*      employees List End       */
 
 .create-from {
-  margin: 30px;
-  text-align: center;
+  margin-bottom: 0;
+}
+
+.body-right {
+  padding: 10px;
+}
+
+.body-right-option {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+.body-right-option li {
+  list-style: none;
+  padding: 10px;
+}
+
+.body-right-create {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  align-items: center;
+}
+
+.create-left {
+}
+
+.create-right {
+}
+
+.create-left p {
+  margin-bottom: 0;
 }
