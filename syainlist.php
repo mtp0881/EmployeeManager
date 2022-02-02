@@ -52,23 +52,28 @@
 </head>
 <body>
 <header>
-    <div class="header-left">
-      <a class="header-title" href="./index.php">Master Management</a>
-    </div>
-    <div class="header-right">
-      <div class="header-right-search">
+  <div class="header-left">
+    <a class="header-title" href="./index.php"><i class="fas fa-users-cog" style="margin-right: 16px;"></i>Master Management</a>
+  </div>
+  <div class="header-right">
+    <div class="header-right-search">
+      <div class="input">
         <input class="header-input" type="text" placeholder="ここに検索する">
-      </div>
-      <div class="header-right-img">
-        <img src="./images/image01.jpg" alt="">
+        <a class="search-icon" href="#">
+          <i class="fas fa-search"></i>
+        </a>
       </div>
     </div>
-  </header>
+    <div class="header-right-img">
+      <img src="./images/image01.jpg" alt="">
+    </div>
+  </div>
+</header>
   <div class="body">
     <div class="body-left">
       <div class="body-left-place">
-        <a href="./index.php">ホーム</a><span> / ダッシュボード</span>
-        <p>ダッシュボード管理</p>
+        <a href="./index.php">ホーム</a><span> / 会員</span>
+        <p>会員管理</p>
       </div>
       <!-- <div class="body-left-profile">
         <div class="body-left-img">
@@ -78,52 +83,58 @@
         <p><?= date('Y年m月d日 H:i') ?></p>
       </div> -->
       <div class="body-left-menu">
-        <div class="menu-wrap row">
-          <div class="col-6 menu-item">
-							<a href="./index.php">
-								<span><i class="fas fa-home"></i></span>
-								<span>ダッシュボード</span>
-							</a>
-					</div>
-          <div class="col-6 menu-item">
-							<a href="./syainlist.php">
-								<span><i class="fas fa-users"></i></span>
-								<span>社員</span>
-							</a>
-					</div>
-          <div class="col-6 menu-item">
-							<a href="#">
-								<span><i class="fas fa-building"></i></span>
-								<span>会社</span>
-							</a>
-					</div>
-          <div class="col-6 menu-item">
-							<a href="#">
-								<span><i class="fas fa-calendar-week"></i></span>
-								<span>カレンダー</span>
-							</a>
-					</div>
-          <div class="col-6 menu-item">
-							<a href="#">
-								<span><i class="fas fa-paste"></i></span>
-								<span>レポート</span>
-							</a>
-					</div>
-          <div class="col-6 menu-item">
-							<a href="#">
-								<span><i class="fas fa-cog"></i></span>
-								<span>設定</span>
-							</a>
-					</div>
-        </div>
+			<table>
+          <tr class="first-tr">
+            <td>
+                <a href="./index.php">
+                  <i class="fas fa-home"></i>
+                  <p>ダッシュボード</p>
+                </a>
+            </td>
+            <td>
+                <a href="./syainlist.php">
+                  <i class="fas fa-users"></i>
+                  <p>社員</p>
+                </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <a href="#">
+                  <i class="fas fa-building"></i>
+                  <p>会社</p>
+                </a>
+            </td>
+            <td>
+                <a href="#">
+                  <i class="fas fa-calendar-week"></i>
+                  <p>カレンダー</p>
+                </a>
+            </td>
+          </tr>
+          <tr class="last-tr">
+            <td>
+                <a href="#">
+                  <i class="fas fa-paste"></i>
+                  <p>レポート</p>
+                </a>
+            </td>
+            <td>
+                <a href="#">
+                  <i class="fas fa-cog"></i>
+                  <p>設定</p>
+                </a>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
     <div class="body-right">
-			<ul class="body-right-option">
-				<li href="#" class=""><a href="#">全部</a></li>
-				<li href="#" class=""><a href="#">チーム</a></li>
-				<li href="#" class=""><a href="#">オフィス</a></li>
-			</ul>
+      <div class="body-right-option">
+        <div class="option-item is-active"><a href="#">全部</a></div>
+        <div class="option-item"><a href="#">チーム</a></div>
+        <div class="option-item"><a href="#">部門</a></div>
+      </div>
 			<div class="body-right-create">
 				<div class="create-left">
 					<p><?= $statement->rowCount() ?> 社員</p>
@@ -136,7 +147,7 @@
 					</form>
 				</div>
 			</div>
-		<div class="container">
+		<div class="container-option">
 	<div class="wraper">
 		<div class="employee-list">
 		<?php while($row = $statement->fetchObject()){ ?>

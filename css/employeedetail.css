@@ -19,6 +19,40 @@
   font-size: 20px;
 }
 
-.container {
+.container-person-option {
   background-color: white;
+}
+
+.container-person {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+}
+.wraper {
+}
+.employee_table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 30px 20px;
+}
+.container-person {
+  position: relative;
+  padding-bottom: 90px;
+}
+
+.container-person h4 {
+  padding: 4px 10px;
+}
+.create-btn-div {
+  text-align: right;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+
+.turn-back {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
 }

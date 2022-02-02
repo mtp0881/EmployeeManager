@@ -37,8 +37,10 @@ try{
 	if($row = $statement->fetchObject()){
 		//スーパーグローバル変数「$_SESSION」でセッションに代入
 		$_SESSION['LoginOK'] = "OK";
+		$_SESSION['userName'] = $row->user_id;
+		$_SESSION['role'] = $row->role;
 		// print($_SESSION['LoginOK']);
-		header('location:./syainlist.php');
+		header('location:./index.php');
 	}
 	else{
 		//スーパーグローバル変数「$_SESSION」でセッションに代入
