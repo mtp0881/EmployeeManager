@@ -11,7 +11,8 @@
 ##### 開発環境
 - Mac OS
 - Php 言語
-- フロントエンド([Bootstrapライブラリ](https://getbootstrap.com/), [ChartJSライブラリ](https://www.chartjs.org/), [イメージ Unsplash](https://unsplash.com))
+- フロントエンド( [Bootstrapライブラリ](https://getbootstrap.com/), [ChartJSライブラリ](https://www.chartjs.org/), [イメージ Unsplash](https://unsplash.com) )
+- デザイン( 参考サイト : [Dleohr](https://dleohr.dreamguystech.com/template-1/dleohr-vertical/index.html) )
 - MySQLデータベース
 ##### 作業工程
 1. 要件定義
