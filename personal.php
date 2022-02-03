@@ -1,6 +1,8 @@
 <?php
   //ログインチェック
   include 'logincheck.php';
+  $pageClass = 'active';
+
   //パラメータの取得
   if(isset($_GET['employee_no'])== TRUE && $_GET['employee_no'] != ''){
   $key =$_GET['employee_no'];
@@ -79,6 +81,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" href="./images/man.png" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,10 +138,10 @@
               <td>
                 <a href="./index.php">
                   <i class="fas fa-home"></i>
-                  <p>ダッシュボード</p>
+                  <p>ホーム</p>
                 </a>
               </td>
-              <td>
+              <td class="<?=$pageClass?>">
                 <a href="./syainlist.php">
                   <i class="fas fa-users"></i>
                   <p>社員</p>
@@ -178,7 +181,7 @@
       </div>
       <div class="body-right">
         <div class="body-right-option">
-          <div class="option-item is-active"><a href="./personal.php?employee_no=<?= $employee_no ?>">詳細</a></div>
+          <div class="option-item is-active_<?=$pageClass?>"><a href="./personal.php?employee_no=<?= $employee_no ?>">詳細</a></div>
           <div class="option-item"><a href="#">部門</a></div>
           <div class="option-item"><a href="#">チーム</a></div>
           <div class="option-item"><a href="./clearCheck.php?employee_no=<?= $employee_no ?>">削除</a></div>
@@ -188,7 +191,7 @@
             <div class="input-group mb-3 nonemargin">
               <input type="text" name="employee_no" class="form-control" placeholder="社員番号を入力してください">
               <div class="input-group-append">
-                <button class="btn btn-warning" type="submit">検索</button>
+                <button class="btn btn-warning" type="submit">社員検索</button>
               </div>
             </div>
           </form>

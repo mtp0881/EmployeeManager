@@ -87,3 +87,12 @@
 }
 
 /* Employee List */
+
+.social-login {
+  margin-bottom: 20px;
+}
+
+.login-acount table {
+  margin-bottom: 0;
+  color: #666;
+}

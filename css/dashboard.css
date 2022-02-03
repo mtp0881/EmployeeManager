@@ -8,7 +8,7 @@ header {
   display: flex;
   justify-content: space-between;
   background-color: #485dba;
-  padding: 24px 30px;
+  padding: 10px 40px;
 }
 
 body {
@@ -139,6 +139,15 @@ body {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   border-radius: 10px;
   padding: 20px;
+  position: relative;
+  padding-bottom: 80px;
+  transition: all 0.25s ease;
+}
+
+.paginate-btn {
+  position: absolute;
+  bottom: 4px;
+  right: 20px;
 }
 
 .body-left-menu {
@@ -150,25 +159,25 @@ body {
 }
 
 .body-left-menu table {
-  border: 1px solid #aaa;
+  border: 1px solid #ededed;
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 6px;
   width: 100%;
+  overflow: hidden;
 }
 .body-left-menu table tr td {
-  border-bottom: 1px solid #aaa;
-  border-left: 1px solid #aaa;
+  border-bottom: 1px solid #e2e2e2;
+  border-left: 1px solid #e2e2e2;
   text-align: center;
   cursor: pointer;
   height: 110px;
+  transition: all 0.25s ease;
 }
 .body-left-menu table tr td:hover {
-  background-color: #aaa;
+  background-color: #e2e2e2;
 }
-.body-left-menu table tr td:hover a {
-  color: white;
-}
+
 .body-left-menu table tr td a {
   color: black;
   text-decoration: none;
@@ -188,7 +197,7 @@ body {
 .body-left-menu table tr td a p {
   display: block;
   margin: 0;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .body-left-menu table tr td:nth-child(2n + 1) {
@@ -244,6 +253,10 @@ body {
   margin-left: -20px;
 }
 
+.employee-list-logo img {
+  border-radius: 5px;
+}
+
 .right-menu-item {
   margin-left: 20px;
   width: 50%;
@@ -270,6 +283,9 @@ body {
 }
 .company-icon {
   background-color: #fbc107;
+}
+.world-icon {
+  background-color: #28a744;
 }
 
 .menu-title p {
@@ -298,11 +314,11 @@ body {
   border-bottom: 1px solid rgba(153, 153, 153, 0.295);
 }
 .grid-title {
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 .grid-content {
-  padding: 20px;
+  padding: 20px 20px 30px 20px;
 }
 
 .form-wraper {
@@ -323,4 +339,56 @@ body {
 
 .name-span {
   font-weight: bold;
+}
+
+.active {
+  background-color: #fbc107;
+}
+.active:hover {
+  background-color: #fbc107 !important;
+}
+
+.active:hover a {
+  color: black !important;
+}
+
+.state a {
+  background-color: #2a7bff;
+  color: white;
+}
+
+.grid-content-table {
+  height: 300px;
+  padding-top: 10px;
+}
+
+.grid-content-table table td,
+th {
+  padding: 0.71rem;
+}
+
+.grid-title {
+  font-weight: bold;
+}
+/* 
+.tag {
+  background-color: #d95941;
+  padding: 4px 6px;
+  border-radius: 4px;
+  color: white;
+}
+
+.tag-color-red {
+  background-color: #e93f59;
+}
+
+.tag-color-yellow {
+  background-color: #ffc906;
+}
+.tag-color-green {
+  background-color: #3fbca3;
+} */
+
+.event-div {
+  padding: 0;
 }

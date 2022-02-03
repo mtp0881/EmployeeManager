@@ -145,18 +145,22 @@ a {
   justify-content: center;
   align-items: center;
   margin-left: -8px;
+  background-color: #e2e2e2;
+  border-color: #e2e2e2;
 }
+
 .employee-list .friends-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 .employee-list .friends-item:nth-child(4) {
-  border: 1px solid #bbb;
+  border: 1px solid #e2e2e2;
+  color: #aaa;
 }
 .employee-list .friends-count {
   margin-left: 10px;
-  color: #aaa;
+  color: gray;
   font-size: 14px;
 }
 .employee-list-action {
@@ -223,14 +227,13 @@ a {
 
 .option-item {
   cursor: pointer;
-  border: 1px solid rgb(199, 199, 199);
-  width: 120px;
+  border: 1px solid #ededed;
+  width: 160px;
 }
 
 .option-item {
-  color: white;
-  background: linear-gradient(to left, white 50%, rgba(128, 128, 128, 0.24) 50%)
-    right;
+  color: black;
+  background: linear-gradient(to left, white 50%, #ededed 50%) right;
   background-size: 200%;
   transition: 0.5s ease-out;
 }
@@ -239,7 +242,7 @@ a {
 }
 
 .option-item:hover a {
-  color: white;
+  color: black;
 }
 
 .option-item:nth-child(1) {
@@ -265,8 +268,8 @@ a {
   background-position: left;
 }
 
-.is-active {
-  background: #28a744 !important;
+.option-item:last-child {
+  border-radius: 0 10px 10px 0;
 }
 
 .is-active a {
@@ -292,4 +295,12 @@ a {
 
 .create-left p {
   margin-bottom: 0;
+}
+
+.is-active_active {
+  background: #28a744 !important;
+}
+
+.is-delete_active {
+  background: rgba(248, 87, 87, 0.897) !important;
 }

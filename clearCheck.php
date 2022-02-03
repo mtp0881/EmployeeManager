@@ -1,5 +1,7 @@
 <?php
   include 'logincheck.php';
+  $pageClass = 'active';
+
 
   if(isset($_GET['employee_no'])== TRUE && $_GET['employee_no'] != ''){
     $key =$_GET['employee_no'];
@@ -60,6 +62,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" href="./images/man.png" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -115,10 +118,10 @@
               <td>
                 <a href="./index.php">
                   <i class="fas fa-home"></i>
-                  <p>ダッシュボード</p>
+                  <p>ホーム</p>
                 </a>
               </td>
-              <td>
+              <td class="<?=$pageClass?>">
                 <a href="./syainlist.php">
                   <i class="fas fa-users"></i>
                   <p>社員</p>
@@ -157,6 +160,12 @@
         </div>
       </div>
       <div class="body-right">
+      <div class="body-right-option">
+          <div class="option-item"><a href="./personal.php?employee_no=<?= $employee_no ?>">詳細</a></div>
+          <div class="option-item"><a href="#">部門</a></div>
+          <div class="option-item"><a href="#">チーム</a></div>
+          <div class="option-item is-delete_<?=$pageClass?>"><a href="./clearCheck.php?employee_no=<?= $employee_no ?>">削除</a></div>
+        </div>
         <div class="container-person">
           <div class="form-wraper">
             <div class="form-clear">
@@ -168,21 +177,21 @@
                 </div>
                 <div class="form-group">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="employee_no" placeholder="会員番号を入力してください">
+                    <input type="text" class="form-control" name="compareCode" placeholder="会員番号を入力してください">
                   </div>
                 </div>
                 <?php 
 			            session_start();
                   if(isset($_SESSION["error"]) == TRUE){
                     ?>
-                    <div class="form-group">
+                    <div class="form-group alert alert-danger">
                       <?=$_SESSION["error"]?>
                     </div>      
                     <?php
                     unset($_SESSION["error"]);
                   }
                 ?>
-                <input type="hidden" value="<?= $employee_no ?>" name="compareCode">
+                <input type="hidden" value="<?= $employee_no ?>" name="employee_no">
                 <div class="create-btn-div">
                   <button type="submit" class="btn btn-danger">削除</button>
                 </div>

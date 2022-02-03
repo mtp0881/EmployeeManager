@@ -1,6 +1,8 @@
 <?php
     //ログインチェック
 	include 'logincheck.php';
+  $pageClass = 'active';
+
 	if($_POST['employee_no']== ''){
 		header('location:./syainlist.php');
     }	

@@ -10,6 +10,10 @@
   display: flex;
 }
 
+.form2 {
+  margin-bottom: 24px;
+}
+
 .nonemargin {
   margin-bottom: 0 !important;
 }
@@ -20,6 +24,10 @@
 }
 
 .container-person-option {
+  background-color: white;
+}
+
+.container-option {
   background-color: white;
 }
 

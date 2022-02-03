@@ -1,6 +1,8 @@
 <?php
   //ログインチェック
   include 'logincheck.php';
+  $pageClass = 'active';
+
   //表示用変数
   $title = '社員情報登録';
   $employee_no = '';
@@ -70,10 +72,10 @@
               <td>
                 <a href="./index.php">
                   <i class="fas fa-home"></i>
-                  <p>ダッシュボード</p>
+                  <p>ホーム</p>
                 </a>
               </td>
-              <td>
+              <td class="<?=$pageClass?>">
                 <a href="./syainlist.php">
                   <i class="fas fa-users"></i>
                   <p>社員</p>

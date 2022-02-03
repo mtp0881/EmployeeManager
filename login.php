@@ -17,6 +17,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" href="./images/man.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
@@ -49,11 +50,31 @@
           <span class="or-text">その他</span>
         </div>
         <div class="social-login">
-          <span>サービスアカウントでログイン</span>
+          <span>以下のアカウントでログインしてくだい</span>
         </div>
-        <div class="error-div">
-          <?php echo $msg ?>
+        <div class="login-acount">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+              <td>管理者専用</td>
+
+                <td>admin</td>
+                <td>admin</td>
+              </tr>
+              <tr>
+              <td>ユーザー専用</td>
+
+                <td>user</td>
+                <td>user</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+          <?php if($msg != ''){ ?>
+            <div class="error-div">
+              <p><?=$msg?></p>
+            </div>
+          <?php } ?>
       </div>
     </div>
   </body>
