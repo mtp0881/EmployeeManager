@@ -297,10 +297,10 @@ a {
   margin-bottom: 0;
 }
 
-.is-active_active {
+.dashboard-color,.personal-color {
   background: #28a744 !important;
 }
 
-.is-delete_active {
+.clear-color {
   background: rgba(248, 87, 87, 0.897) !important;
 }

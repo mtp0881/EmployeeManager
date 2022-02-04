@@ -9,7 +9,7 @@ if(isset($_GET['employee_no'])== TRUE && $_GET['employee_no'] != ''){
 }
 
 else{
-	header('location:./syainlist.php');
+	header('location:./employee_list.php');
 }
 
 try{
@@ -47,6 +47,6 @@ catch(PDOException $e){
 	$pdo = null;
 	
 	//社員データ一覧に移動する
-	header('location:./syainlist.php');
+	header('location:./employee_list.php');
 }
 ?>

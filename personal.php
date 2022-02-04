@@ -2,13 +2,14 @@
   //ログインチェック
   include 'logincheck.php';
   $pageClass = 'active';
+  $pageName_bar = 'personal-color';
 
   //パラメータの取得
   if(isset($_GET['employee_no'])== TRUE && $_GET['employee_no'] != ''){
   $key =$_GET['employee_no'];
   }
   else{
-      header('location:syainlist.php');
+      header('location:./employee_list.php');
   }
   //表示用変数
   $title = '社員情報修正';
@@ -75,28 +76,12 @@
   //エラーページに移動する
   header('location:error.php');
   }
-  
   ?>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="./images/man.png" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-      />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./css/employeelist.css" />
-    <link rel="stylesheet" type="text/css" href="./css/dashboard.css" />
-    <link rel="stylesheet" type="text/css" href="./css/emp_style.css" />
-    <link rel="stylesheet" type="text/css" href="./css/employeedetail.css" />
+    <?php include "./common_library.php" ?>
     <title>データ検索・修正</title>
   </head>
   <body>
@@ -121,7 +106,7 @@
     <div class="body">
       <div class="body-left">
         <div class="body-left-place">
-          <a href="./index.php">ホーム</a><span> / <a href="./syainlist.php">会員</a> / 詳細</span>
+          <a href="./index.php">ホーム</a><span> / <a href="./employee_list.php">会員</a> / 詳細</span>
           <p>会員詳細情報</p>
         </div>
         <div class="body-left-profile">
@@ -142,7 +127,7 @@
                 </a>
               </td>
               <td class="<?=$pageClass?>">
-                <a href="./syainlist.php">
+                <a href="./employee_list.php">
                   <i class="fas fa-users"></i>
                   <p>社員</p>
                 </a>
@@ -156,7 +141,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="./calendar.php">
                   <i class="fas fa-calendar-week"></i>
                   <p>カレンダー</p>
                 </a>
@@ -181,7 +166,7 @@
       </div>
       <div class="body-right">
         <div class="body-right-option">
-          <div class="option-item is-active_<?=$pageClass?>"><a href="./personal.php?employee_no=<?= $employee_no ?>">詳細</a></div>
+          <div class="option-item <?php if ($pageName_bar == 'personal-color'){ echo "personal-color"; }?>"><a href="./personal.php?employee_no=<?= $employee_no ?>">詳細</a></div>
           <div class="option-item"><a href="#">部門</a></div>
           <div class="option-item"><a href="#">チーム</a></div>
           <div class="option-item"><a href="./clearCheck.php?employee_no=<?= $employee_no ?>">削除</a></div>
@@ -191,7 +176,7 @@
             <div class="input-group mb-3 nonemargin">
               <input type="text" name="employee_no" class="form-control" placeholder="社員番号を入力してください">
               <div class="input-group-append">
-                <button class="btn btn-warning" type="submit">社員検索</button>
+                <button class="btn btn-primary" type="submit">社員検索</button>
               </div>
             </div>
           </form>
@@ -346,7 +331,7 @@
                 </div>
               </form>
               <div class="turn-back">
-                <form action="syainlist.php">
+                <form action="employee_list.php">
                   <input type="submit" value="社員一覧へ" class="btn btn-outline-secondary"/>
                 </form>
               </div>

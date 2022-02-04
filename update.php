@@ -6,7 +6,6 @@
 	if($_POST['employee_no']== ''){
 		header('location:./syainlist.php');
     }	
-	
 	$employee_no     = $_POST['employee_no'];
 	$last_name       = $_POST['last_name'];
 	$first_name      = $_POST['first_name'];
@@ -19,19 +18,13 @@
 	$department      = $_POST['department'];
 	$face_image      = $_POST['face'];
 		
-	//パラメータの取得
-
 	try{
-		
-		//DB接続
 		require_once('./DBInfo.php');
 		$pdo = new PDO(DBInfo::DSN, DBInfo::USER, DBInfo::PASSWORD, array(PDO::ATTR_PERSISTENT => true));
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-		//更新系SQL
+
 		$sql = "UPDATE employee SET last_name=:last_name,first_name=:first_name,last_name_kana=:last_name_kana,first_name_kana=:first_name_kana,gender=:gender,entrance_date=:entrance_date,salary=:salary,manager=:manager,department=:department,face_image=:face_image WHERE employee_no=:employee_no";
 		
-		//更新系SQLを発行
 		$statement = $pdo->prepare($sql);
 		
 		$statement->bindValue(":employee_no", $employee_no);
@@ -48,22 +41,14 @@
 		
 		$statement->execute();
 
-		//DB切断
 		$pdo = null;
 		
-		header('location:./syainlist.php');
+		header('location:./employee_list.php');
 	}
 	catch(PDOException $e){
 		
-		//DB切断
 		$pdo = null;
 		
-		//エラーページに移動する
-		//header('location:error.php');
-		$code = $e->getCode();
-		$message = $e->getMessage();
-		print("{$code}/{$message},<br />");
+		header('location:error.php');
 	}
-	
-	
 ?>

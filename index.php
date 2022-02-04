@@ -4,65 +4,33 @@
   session_start();
   session_regenerate_id(TRUE);
   $pageClass = 'active';
+  try{
+    //DB接続
+    require_once('./DBInfo.php');
+    $pdo = new PDO(DBInfo::DSN, DBInfo::USER, DBInfo::PASSWORD, array(PDO::ATTR_PERSISTENT => true));
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    try{
-      //DB接続
-      require_once('./DBInfo.php');
-      $pdo = new PDO(DBInfo::DSN, DBInfo::USER, DBInfo::PASSWORD, array(PDO::ATTR_PERSISTENT => true));
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-      $sqlSelectAll = "SELECT employee_no FROM employee";
-      $statementAll = $pdo->prepare($sqlSelectAll);
-      $statementAll->execute();
-            
-      $pdo = null;
+    $sqlSelectAll = "SELECT employee_no FROM employee";
+    $statementAll = $pdo->prepare($sqlSelectAll);
+    $statementAll->execute();
+          
+    $pdo = null;
   } catch(PDOException $e){
     $pdo = null;
     header('location:error.php');
   }
-
-
   ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="./images/man.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-    </script>
-
-    <link rel="stylesheet" type="text/css" href="./css/dashboard.css" />
+    <?php include "./common_library.php" ?>
     <title>ホーム</title>
   </head>
   <body>
-    <header>
-      <div class="header-left">
-        <a class="header-title" href="./index.php"><i class="fas fa-users-cog" style="margin-right: 16px;"></i>Master Management</a>
-      </div>
-      <div class="header-right">
-        <div class="header-right-search">
-          <div class="input">
-            <input class="header-input" type="text" placeholder="ここに検索する">
-            <a class="search-icon" href="#">
-            <i class="fas fa-search"></i>
-            </a>
-          </div>
-        </div>
-        <div class="header-right-img">
-          <img src="./images/image01.jpg" alt="">
-        </div>
-      </div>
-    </header>
+  <?php include "./common_header.php" ?>
     <div class="body">
       <div class="body-left">
         <div class="body-left-place">
@@ -76,6 +44,7 @@
           <p>こんにちは <?= $_SESSION['userName'] ?></p>
           <p><?= date('Y年m月d日 H:i') ?></p>
         </div>
+      <?php if($_SESSION['role'] == 1){ ?>
         <div class="body-left-menu">
           <table>
             <tr class="first-tr" >
@@ -86,7 +55,7 @@
                 </a>
               </td>
               <td class="btn-div">
-                <a href="./syainlist.php">
+                <a href="./employee_list.php">
                   <i class="fas fa-users"></i>
                   <p>社員</p>
                 </a>
@@ -100,7 +69,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="./calendar.php">
                   <i class="fas fa-calendar-week"></i>
                   <p>カレンダー</p>
                 </a>
@@ -122,6 +91,7 @@
             </tr>
           </table>
         </div>
+        <?php } ?>
       </div>
       <?php if($_SESSION['role'] == 1){ ?>
       <div class="body-right">
@@ -159,6 +129,7 @@
             <div class="grid-item">
                 <div class="grid-header">
                   <div class="grid-title">販売状況</div>
+                  <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
                 </div>
                 <div class="grid-content">
                   <div class="container-chart">
@@ -169,6 +140,7 @@
               <div class="grid-item">
                 <div class="grid-header">
                   <div class="grid-title">役職</div>
+                  <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
                 </div>
                 <div class="grid-content">
                   <div class="container-chart">
@@ -179,6 +151,7 @@
             <div class="grid-item">
               <div class="grid-header">
                 <div class="grid-title">プロジェクト</div>
+                  <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
               </div>
               <div class="grid-content grid-content-table overflow-auto">
                 <table class="table table-hover table-borderless">
@@ -231,10 +204,10 @@
                 </table>
               </div>
             </div>
-            
             <div class="grid-item">
               <div class="grid-header">
                 <div class="grid-title">今日のイベント</div>
+                  <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
               </div>
               <div class="grid-content event-div">
                 <div class="grid-content grid-content-table overflow-auto">
@@ -273,6 +246,7 @@
       <?php } else{ ?>
       <?php } ?>
     </div>
+    
 
     <?php
     
@@ -313,71 +287,8 @@
 		//エラーページに移動する
 		header('location:error.php');
 	}
-    
-    ?>
-
-
-    <script>
-        var xValues = ["11月","12月","1月","2月","3月","4月"];
-
-          new Chart("lineChart", {
-            type: "line",
-            data: {
-              labels: xValues,
-              datasets: [{
-                label: '販売チーム01',
-                data: [860,1140,1060,1060,1070,1110],
-                borderColor: '#d95941',
-                fill: false
-              },{
-                label: '販売チーム02',
-                data: [1600,1700,1700,1900,2000,2700],
-                borderColor: '#ffc906',
-                fill: false
-              },{
-                label: '販売チーム03',
-                data: [300,700,2000,5000,5100,4000],
-                borderColor: '#3fbca3',
-                fill: false
-              }]
-            },
-            options: {
-              legend: {display: true}
-            }
-          });
-
-
-
-        var xValues = ["社長", "管理本部", "営業部", "総務部", "品質管理部"];
-        var yValues = [<?=$arr["社長"]?>, <?=$arr["管理本部"]?>, <?=$arr["営業部"]?>, <?=$arr["総務部"]?>, <?=$arr["品質管理部"]?>];
-        var barColors = [
-          "#FECD56",
-          "#FF9F40",
-          "#FF6383",
-          "#2FA0EE",
-          "#4BC0C0"
-        ];
-
-        new Chart("pieChart", {
-          type: "doughnut",
-          data: {
-            labels: xValues,
-            datasets: [{
-              backgroundColor: barColors,
-              data: yValues
-            }]
-          },
-          options: {
-            title: {
-              display: false,
-            }
-          }
-        });
-
-  </script>
-
-    
-
-
+  ?>
+    <script src="./js/line_chart.js"></script>
+    <?php include './js/pie_chart.php'; ?>    
   </body>
 </html>

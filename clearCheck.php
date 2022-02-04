@@ -1,6 +1,7 @@
 <?php
   include 'logincheck.php';
-  $pageClass = 'active';
+  $pageName = 'employee';
+  $pageName_bar = 'clear-color';
 
 
   if(isset($_GET['employee_no'])== TRUE && $_GET['employee_no'] != ''){
@@ -62,22 +63,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="./images/man.png" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-      />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./css/employeelist.css" />
-    <link rel="stylesheet" type="text/css" href="./css/dashboard.css" />
-    <link rel="stylesheet" type="text/css" href="./css/emp_style.css" />
-    <link rel="stylesheet" type="text/css" href="./css/employeedetail.css" />
+    <?php include "./common_library.php" ?>
     <title>データ検索・修正</title>
   </head>
   <body>
@@ -112,59 +98,14 @@
           <p><?= $last_name ?> <?= $first_name ?></p>
           <p>example@example.com</p>
         </div>
-        <div class="body-left-menu">
-          <table>
-            <tr class="first-tr">
-              <td>
-                <a href="./index.php">
-                  <i class="fas fa-home"></i>
-                  <p>ホーム</p>
-                </a>
-              </td>
-              <td class="<?=$pageClass?>">
-                <a href="./syainlist.php">
-                  <i class="fas fa-users"></i>
-                  <p>社員</p>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">
-                  <i class="fas fa-building"></i>
-                  <p>会社</p>
-                </a>
-              </td>
-              <td>
-                <a href="#">
-                  <i class="fas fa-calendar-week"></i>
-                  <p>カレンダー</p>
-                </a>
-              </td>
-            </tr>
-            <tr class="last-tr">
-              <td>
-                <a href="#">
-                  <i class="fas fa-paste"></i>
-                  <p>レポート</p>
-                </a>
-              </td>
-              <td>
-                <a href="#">
-                  <i class="fas fa-cog"></i>
-                  <p>設定</p>
-                </a>
-              </td>
-            </tr>
-          </table>
-        </div>
+        <?php include "./common_body_left.php" ?>
       </div>
       <div class="body-right">
       <div class="body-right-option">
           <div class="option-item"><a href="./personal.php?employee_no=<?= $employee_no ?>">詳細</a></div>
           <div class="option-item"><a href="#">部門</a></div>
           <div class="option-item"><a href="#">チーム</a></div>
-          <div class="option-item is-delete_<?=$pageClass?>"><a href="./clearCheck.php?employee_no=<?= $employee_no ?>">削除</a></div>
+          <div class="option-item <?php if ($pageName_bar == 'clear-color'){ echo "clear-color"; }?>"><a href="./clearCheck.php?employee_no=<?= $employee_no ?>">削除</a></div>
         </div>
         <div class="container-person">
           <div class="form-wraper">
@@ -197,7 +138,7 @@
                 </div>
               </form>
               <div class="turn-back">
-                <form action="syainlist.php">
+                <form action="./employee_list.php">
                   <input type="submit" value="社員一覧へ" class="btn btn-outline-secondary"/>
                 </form>
               </div>

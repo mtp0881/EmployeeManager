@@ -34,13 +34,13 @@
 			
 			$pdo = null;
 	
-			header('location:./syainlist.php');
+			header('location:./employee_list.php');
 		}
 		catch(PDOException $e){
 	
 			$pdo = null;
 	
-			header('location:./syainlist.php');
+			header('location:./employee_list.php');
 		}
 
 	}
