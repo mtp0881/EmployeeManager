@@ -3,13 +3,13 @@
   date_default_timezone_set ('Asia/Tokyo');
   session_start();
   session_regenerate_id(TRUE);
-  $pageClass = 'active';
+  $pageName = 'index';
   try{
     //DB接続
     require_once('./DBInfo.php');
     $pdo = new PDO(DBInfo::DSN, DBInfo::USER, DBInfo::PASSWORD, array(PDO::ATTR_PERSISTENT => true));
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+  
     $sqlSelectAll = "SELECT employee_no FROM employee";
     $statementAll = $pdo->prepare($sqlSelectAll);
     $statementAll->execute();
@@ -30,7 +30,7 @@
     <title>ホーム</title>
   </head>
   <body>
-  <?php include "./common_header.php" ?>
+    <?php include "./common_header.php" ?>
     <div class="body">
       <div class="body-left">
         <div class="body-left-place">
@@ -44,54 +44,7 @@
           <p>こんにちは <?= $_SESSION['userName'] ?></p>
           <p><?= date('Y年m月d日 H:i') ?></p>
         </div>
-      <?php if($_SESSION['role'] == 1){ ?>
-        <div class="body-left-menu">
-          <table>
-            <tr class="first-tr" >
-              <td class="<?=$pageClass?>">
-                <a href="./index.php">
-                  <i class="fas fa-home"></i>
-                  <p>ホーム</p>
-                </a>
-              </td>
-              <td class="btn-div">
-                <a href="./employee_list.php">
-                  <i class="fas fa-users"></i>
-                  <p>社員</p>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">
-                  <i class="fas fa-building"></i>
-                  <p>会社</p>
-                </a>
-              </td>
-              <td>
-                <a href="./calendar.php">
-                  <i class="fas fa-calendar-week"></i>
-                  <p>カレンダー</p>
-                </a>
-              </td>
-            </tr>
-            <tr class="last-tr">
-              <td>
-                <a href="#">
-                  <i class="fas fa-paste"></i>
-                  <p>レポート</p>
-                </a>
-              </td>
-              <td>
-                <a href="#">
-                  <i class="fas fa-cog"></i>
-                  <p>設定</p>
-                </a>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <?php } ?>
+        <?php if($_SESSION['role'] == 1){  include "./common_body_left.php"; } ?>
       </div>
       <?php if($_SESSION['role'] == 1){ ?>
       <div class="body-right">
@@ -127,31 +80,31 @@
         <div class="right-content">
           <div class="grid-wrapper">
             <div class="grid-item">
-                <div class="grid-header">
-                  <div class="grid-title">販売状況</div>
-                  <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
-                </div>
-                <div class="grid-content">
-                  <div class="container-chart">
-                    <canvas id="lineChart"></canvas>
-                  </div>
+              <div class="grid-header">
+                <div class="grid-title">販売状況</div>
+                <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
+              </div>
+              <div class="grid-content">
+                <div class="container-chart">
+                  <canvas id="lineChart"></canvas>
                 </div>
               </div>
-              <div class="grid-item">
-                <div class="grid-header">
-                  <div class="grid-title">役職</div>
-                  <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
-                </div>
-                <div class="grid-content">
-                  <div class="container-chart">
-                      <canvas id="pieChart"></canvas>
-                  </div>
+            </div>
+            <div class="grid-item">
+              <div class="grid-header">
+                <div class="grid-title">役職</div>
+                <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
+              </div>
+              <div class="grid-content">
+                <div class="container-chart">
+                  <canvas id="pieChart"></canvas>
                 </div>
               </div>
+            </div>
             <div class="grid-item">
               <div class="grid-header">
                 <div class="grid-title">プロジェクト</div>
-                  <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
+                <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
               </div>
               <div class="grid-content grid-content-table overflow-auto">
                 <table class="table table-hover table-borderless">
@@ -207,35 +160,35 @@
             <div class="grid-item">
               <div class="grid-header">
                 <div class="grid-title">今日のイベント</div>
-                  <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
+                <div class="gird-icon"><a href="#"><i class="fas fa-sort-down"></i></a></div>
               </div>
               <div class="grid-content event-div">
                 <div class="grid-content grid-content-table overflow-auto">
                   <table class="table table-striped table-hover table-borderless">
-                      <tr>
-                        <td>イベント１</td>
-                        <td>内容１</td>
-                      </tr>
-                      <tr>
-                        <td>イベント２</td>
-                        <td>内容２</td>
-                      </tr>
-                      <tr>
-                        <td>イベント３</td>
-                        <td>内容３</td>
-                      </tr>
-                      <tr>
-                        <td>イベント４</td>
-                        <td>内容４</td>
-                      </tr>
-                      <tr>
-                        <td>イベント５</td>
-                        <td>内容５</td>
-                      </tr>
-                      <tr>
-                        <td>イベント６</td>
-                        <td>内容６</td>
-                      </tr>
+                    <tr>
+                      <td>イベント１</td>
+                      <td>内容１</td>
+                    </tr>
+                    <tr>
+                      <td>イベント２</td>
+                      <td>内容２</td>
+                    </tr>
+                    <tr>
+                      <td>イベント３</td>
+                      <td>内容３</td>
+                    </tr>
+                    <tr>
+                      <td>イベント４</td>
+                      <td>内容４</td>
+                    </tr>
+                    <tr>
+                      <td>イベント５</td>
+                      <td>内容５</td>
+                    </tr>
+                    <tr>
+                      <td>イベント６</td>
+                      <td>内容６</td>
+                    </tr>
                   </table>
                 </div>
               </div>
@@ -246,48 +199,45 @@
       <?php } else{ ?>
       <?php } ?>
     </div>
-    
-
     <?php
-    
-    try{
-			//DB接続
-			require_once('./DBInfo.php');
-			$pdo = new PDO(DBInfo::DSN, DBInfo::USER, DBInfo::PASSWORD, array(PDO::ATTR_PERSISTENT => true));
-			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-      $sqlSelectAll = "SELECT employee_no FROM employee";
-      $statementAll = $pdo->prepare($sqlSelectAll);
-			$statementAll->execute();
-						
-
-			//参照系SQL
-			$sql = "SELECT D.department_name AS name,COUNT(D.department_name) AS count,D.department_no FROM department AS D LEFT JOIN employee AS E ON D.department_no = E.department GROUP BY D.department_name,D.department_no ORDER BY D.department_no";
-
-						
-			//参照系SQLを発行
-			$statement = $pdo->prepare($sql);
-
-      $statement->bindValue(":limitStart", $limitStart,PDO::PARAM_INT);
-      $statement->bindValue(":limitEnd", $limitEnd,PDO::PARAM_INT);
-
-			$statement->execute();
-
-      while($row = $statement->fetchObject()){
-        $arr[$row->name] = $row->count;
+      try{
+      //DB接続
+      require_once('./DBInfo.php');
+      $pdo = new PDO(DBInfo::DSN, DBInfo::USER, DBInfo::PASSWORD, array(PDO::ATTR_PERSISTENT => true));
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      
+        $sqlSelectAll = "SELECT employee_no FROM employee";
+        $statementAll = $pdo->prepare($sqlSelectAll);
+      $statementAll->execute();
+      		
+      
+      //参照系SQL
+      $sql = "SELECT D.department_name AS name,COUNT(D.department_name) AS count,D.department_no FROM department AS D LEFT JOIN employee AS E ON D.department_no = E.department GROUP BY D.department_name,D.department_no ORDER BY D.department_no";
+      
+      		
+      //参照系SQLを発行
+      $statement = $pdo->prepare($sql);
+      
+        $statement->bindValue(":limitStart", $limitStart,PDO::PARAM_INT);
+        $statement->bindValue(":limitEnd", $limitEnd,PDO::PARAM_INT);
+      
+      $statement->execute();
+      
+        while($row = $statement->fetchObject()){
+          $arr[$row->name] = $row->count;
+        }
+      
+      //DB切断
+      $pdo = null;
+      
+      } catch(PDOException $e){
+      //DB切断
+      $pdo = null;
+      	
+      //エラーページに移動する
+      header('location:error.php');
       }
-
-				//DB切断
-			$pdo = null;
-
-	} catch(PDOException $e){
-		//DB切断
-		$pdo = null;
-					
-		//エラーページに移動する
-		header('location:error.php');
-	}
-  ?>
+      ?>
     <script src="./js/line_chart.js"></script>
     <?php include './js/pie_chart.php'; ?>    
   </body>

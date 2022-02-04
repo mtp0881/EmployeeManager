@@ -13,7 +13,7 @@
     </div>
     <div class="header-right-menu">
       <a class="header-title" href="./logout.php">
-        <i class="fas fa-sign-out-alt"></i>
+      <i class="fas fa-sign-out-alt"></i>
       </a>
     </div>
   </div>

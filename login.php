@@ -51,25 +51,23 @@
           <table class="table table-bordered">
             <tbody>
               <tr>
-              <td>管理者専用</td>
-
+                <td>管理者専用</td>
                 <td>admin</td>
                 <td>admin</td>
               </tr>
               <tr>
-              <td>ユーザー専用</td>
-
+                <td>ユーザー専用</td>
                 <td>user</td>
                 <td>user</td>
               </tr>
             </tbody>
           </table>
         </div>
-          <?php if($msg != ''){ ?>
-            <div class="error-div">
-              <p><?=$msg?></p>
-            </div>
-          <?php } ?>
+        <?php if($msg != ''){ ?>
+        <div class="error-div">
+          <p><?=$msg?></p>
+        </div>
+        <?php } ?>
       </div>
     </div>
   </body>

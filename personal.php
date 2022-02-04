@@ -3,7 +3,7 @@
   include 'logincheck.php';
   $pageClass = 'active';
   $pageName_bar = 'personal-color';
-
+  
   //パラメータの取得
   if(isset($_GET['employee_no'])== TRUE && $_GET['employee_no'] != ''){
   $key =$_GET['employee_no'];

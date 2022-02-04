@@ -2,8 +2,8 @@
   include 'logincheck.php';
   $pageName = 'employee';
   $pageName_bar = 'clear-color';
-
-
+  
+  
   if(isset($_GET['employee_no'])== TRUE && $_GET['employee_no'] != ''){
     $key =$_GET['employee_no'];
   }
@@ -101,7 +101,7 @@
         <?php include "./common_body_left.php" ?>
       </div>
       <div class="body-right">
-      <div class="body-right-option">
+        <div class="body-right-option">
           <div class="option-item"><a href="./personal.php?employee_no=<?= $employee_no ?>">詳細</a></div>
           <div class="option-item"><a href="#">部門</a></div>
           <div class="option-item"><a href="#">チーム</a></div>
@@ -122,16 +122,16 @@
                   </div>
                 </div>
                 <?php 
-			            session_start();
-                  if(isset($_SESSION["error"]) == TRUE){
-                    ?>
-                    <div class="form-group alert alert-danger">
-                      <?=$_SESSION["error"]?>
-                    </div>      
-                    <?php
-                    unset($_SESSION["error"]);
+                  session_start();
+                     if(isset($_SESSION["error"]) == TRUE){
+                       ?>
+                <div class="form-group alert alert-danger">
+                  <?=$_SESSION["error"]?>
+                </div>
+                <?php
+                  unset($_SESSION["error"]);
                   }
-                ?>
+                  ?>
                 <input type="hidden" value="<?= $employee_no ?>" name="employee_no">
                 <div class="create-btn-div">
                   <button type="submit" class="btn btn-danger">削除</button>

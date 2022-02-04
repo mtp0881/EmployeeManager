@@ -2,7 +2,7 @@
   //ログインチェック
   include 'logincheck.php';
   $pageName = 'employee';
-
+  
   //表示用変数
   $title = '社員情報登録';
   $employee_no = '';
@@ -27,7 +27,7 @@
     <title>社員情報登録</title>
   </head>
   <body>
-  <?php include "./common_header.php" ?>
+    <?php include "./common_header.php" ?>
     <div class="body">
       <div class="body-left">
         <div class="body-left-place">
